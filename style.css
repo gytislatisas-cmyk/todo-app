@@ -107,8 +107,13 @@ button {
   border-radius: 8px;
 }
 
-#todo-form button { padding: 10px 16px; background: var(--primary); color: #fff; }
-#todo-form button:hover { background: var(--primary-hover); }
+#todo-form button,
+#clear-completed { padding: 10px 16px; background: var(--primary); color: #fff; }
+#todo-form button:hover,
+#clear-completed:hover { background: var(--primary-hover); }
+
+#clear-completed { margin-top: 16px; }
+#clear-completed[hidden] { display: none; }
 
 #todo-list { list-style: none; margin: 0; padding: 0; }
 
