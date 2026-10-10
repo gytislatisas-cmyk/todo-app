@@ -8,7 +8,13 @@
 </head>
 <body>
   <main class="app">
-    <h1>Todo</h1>
+    <div class="header">
+      <h1>Todo</h1>
+      <button type="button" id="theme-toggle" role="switch" aria-checked="false">
+        <span class="label">Dark mode</span>
+        <span class="track"></span>
+      </button>
+    </div>
     <form id="todo-form">
       <input type="text" id="todo-input" placeholder="What needs to be done?" autocomplete="off" required>
       <button type="submit">Add</button>

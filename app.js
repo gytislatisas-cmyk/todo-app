@@ -1,9 +1,11 @@
 const STORAGE_KEY = 'todos';
+const THEME_KEY = 'theme';
 
 const form = document.getElementById('todo-form');
 const input = document.getElementById('todo-input');
 const list = document.getElementById('todo-list');
 const empty = document.getElementById('empty');
+const themeToggle = document.getElementById('theme-toggle');
 const clearBtn = document.getElementById('clear-completed');
 
 let todos = load();
@@ -73,4 +75,16 @@ clearBtn.addEventListener('click', () => {
   render();
 });
 
+function applyTheme(theme) {
+  document.documentElement.dataset.theme = theme;
+  themeToggle.setAttribute('aria-checked', String(theme === 'dark'));
+}
+
+themeToggle.addEventListener('click', () => {
+  const next = document.documentElement.dataset.theme === 'dark' ? 'light' : 'dark';
+  applyTheme(next);
+  localStorage.setItem(THEME_KEY, next);
+});
+
+applyTheme(localStorage.getItem(THEME_KEY) === 'dark' ? 'dark' : 'light');
 render();
