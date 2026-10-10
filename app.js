@@ -4,6 +4,7 @@ const form = document.getElementById('todo-form');
 const input = document.getElementById('todo-input');
 const list = document.getElementById('todo-list');
 const empty = document.getElementById('empty');
+const clearBtn = document.getElementById('clear-completed');
 
 let todos = load();
 
@@ -22,6 +23,7 @@ function save() {
 function render() {
   list.innerHTML = '';
   empty.hidden = todos.length > 0;
+  clearBtn.hidden = !todos.some(t => t.done);
 
   for (const todo of todos) {
     const li = document.createElement('li');
@@ -63,6 +65,12 @@ form.addEventListener('submit', e => {
   render();
   input.value = '';
   input.focus();
+});
+
+clearBtn.addEventListener('click', () => {
+  todos = todos.filter(t => !t.done);
+  save();
+  render();
 });
 
 render();
