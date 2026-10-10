@@ -36,8 +36,13 @@ button {
   border-radius: 8px;
 }
 
-#todo-form button { padding: 10px 16px; background: #2563eb; color: #fff; }
-#todo-form button:hover { background: #1d4ed8; }
+#todo-form button,
+#clear-completed { padding: 10px 16px; background: #2563eb; color: #fff; }
+#todo-form button:hover,
+#clear-completed:hover { background: #1d4ed8; }
+
+#clear-completed { margin-top: 16px; }
+#clear-completed[hidden] { display: none; }
 
 #todo-list { list-style: none; margin: 0; padding: 0; }
 
